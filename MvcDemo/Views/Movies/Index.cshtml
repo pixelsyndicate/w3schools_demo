@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<MvcDemo.Models.MovieDB>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Movies";
 }
 
-<h2>Index</h2>
+<h2>@ViewBag.Title</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create", new object{}, new { @class="btn btn-primary"})
 </p>
 <table class="table">
     <tr>
@@ -34,10 +34,9 @@
         <td>
             @Html.DisplayFor(modelItem => item.Date)
         </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        <td>@Html.ActionLink("Details", "Details", new { id = item.ID }, new { @class = "btn btn-lg btn-info" })
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID},new { @class="btn btn-sm btn-warning" }) 
+            @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { @class = "btn btn-sm btn-danger" })
         </td>
     </tr>
 }
